@@ -31,7 +31,7 @@ let g:Tex_ViewRule_pdf = 'mupdf'
 function! CompileCurrentSlide()
    let tmpfile = "current-slide.tex"
    silent! exe '1,/\s*\\begin{document}/w! '.tmpfile
-   silent! exe '.+1?\\begin{frame}?,.-1/\\end{frame}/w! >> '.tmpfile
+   silent! exe '.+1?\\begin{z*frame}?,.-1/\\end{z*frame}/w! >> '.tmpfile
    silent! exe '/\s*\\end{document}/w! >> '.tmpfile
    exe '!latexmk -shell-escape -pdf '.tmpfile
 endfunction
@@ -85,7 +85,7 @@ noremap da i\arr{<Esc>/\><CR>i}<Esc>
 
 
 " Convert delimiters to latex syntax. You should put the cursor in the open
-" character
+" character. (Deprecated... use \ab from physics2 package)
 noremap ds :call PutDelims()<CR>
 noremap sd :call ReverseDelims()<CR>
 
