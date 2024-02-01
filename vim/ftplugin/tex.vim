@@ -91,22 +91,22 @@ noremap sd :call ReverseDelims()<CR>
 
 function! PutDelims()
 
-  let del=getline('.')[col('.')-1]
-  let beg=col('.')
-  execute 'normal %r}'
-  execute 'normal '.beg.'|r\'
+  " let del=getline('.')[col('.')-1]
+  " let beg=col('.')
+  " execute 'normal %r}'
+  " execute 'normal '.beg.'|r\'
 
-  if (del ==? '(')
-    execute 'normal lipars*'
-  endif
-  if (del ==? '{')
-    execute 'normal librcs*'
-  endif
-  if (del ==? '[')
-    execute 'normal librks*'
-  endif
-
-  execute 'normal li{'
+  " if (del ==? '(')
+  "   execute 'normal lipars*'
+  " endif
+  " if (del ==? '{')
+  "   execute 'normal librcs*'
+  " endif
+  " if (del ==? '[')
+  "   execute 'normal librks*'
+  " endif
+  " execute 'normal li{'
+  execute 'normal i\ab'
 
 endfunction         
 

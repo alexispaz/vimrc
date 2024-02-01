@@ -1,6 +1,9 @@
 " No wrap
 set textwidth=77
-
+ 
+" Auto-wrap paragraph
+" set formatoptions+=a
+ 
 "	Auto-wrap comments (inserting comment leader)
 set formatoptions=c
 
@@ -9,13 +12,9 @@ set formatoptions+=r
 
 "	Allow formatting of comments with "gq" or "gw".
 set formatoptions+=q
-
-" Auto-format paragraph (only comments with "c" options)
-set formatoptions+=a
-               
+              
 " Do not auto-format already long lines
 set formatoptions+=l
-               
 
 " No wrap by terminal size
 set wrapmargin=0
