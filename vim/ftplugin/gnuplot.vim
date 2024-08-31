@@ -1,4 +1,6 @@
-" No wrap
+" Format
+" ======
+
 set textwidth=77
  
 " Auto-wrap paragraph
@@ -18,6 +20,9 @@ set formatoptions+=l
 
 " No wrap by terminal size
 set wrapmargin=0
+
+" Utilities
+" =========
 
 function! Zplt_plt()
 
@@ -46,7 +51,6 @@ function! Zplt_run()
 
 endfunction                                               
                   
-
 " compilacion
 nnoremap <leader>zx  :call Zplt_run()<CR>
 nnoremap <leader>zc  :call Zplt_plt()<CR>

@@ -195,7 +195,9 @@ call vundle#begin()
   " A better vimdiff mergetool
   Plugin 'whiteinge/diffconflicts'
  
-  " All of your Plugins must be added before the following line
+  " AI
+  " Plugin 'madox2/vim-ai' chatGPT
+  Plugin 'github/copilot.vim'
 
 call vundle#end()
 
@@ -769,4 +771,11 @@ endif " has("autocmd")
 
 " printer options  
 set popt+=paper:a4
+
+
+" AI
+" ==
+
+" let g:vim_ai_chat['options']['model'] = 'gpt-4'
+
 

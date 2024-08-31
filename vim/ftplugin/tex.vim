@@ -1,5 +1,43 @@
+" Format
+" ======
 
-" latex-suite
+" set textwidth=77
+ 
+" Wrapping
+" --------
+
+" Auto-wrap paragraph
+set formatoptions+=a
+ 
+"	Auto-wrap comments (inserting comment leader)
+set formatoptions=c
+
+"	Auto-insert comment with "<enter>" in insert mode
+set formatoptions+=r
+
+"	Allow formatting of comments with "gq" or "gw".
+set formatoptions+=q
+              
+" Do not auto-format already long lines
+set formatoptions+=l
+
+" No wrap by terminal size
+set wrapmargin=0
+ 
+" Indentation
+" -----------
+set sw=2
+
+" Increase level when inserting new line after parenthesis, etc.
+set nosmartindent
+
+" Lisp standar for autoindent
+set nolisp
+
+" C rules
+set nocindent
+
+" Latex-suite
 " ===========
 " `:help latex-suite.txt` for more information
  
@@ -28,18 +66,6 @@ let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf = 'latexmk -shell-escape -pdf $*'
 let g:Tex_ViewRule_pdf = 'mupdf'
 
-function! CompileCurrentSlide()
-   let tmpfile = "current-slide.tex"
-   silent! exe '1,/\s*\\begin{document}/w! '.tmpfile
-   silent! exe '.+1?\\begin{z*frame}?,.-1/\\end{z*frame}/w! >> '.tmpfile
-   silent! exe '/\s*\\end{document}/w! >> '.tmpfile
-   exe '!latexmk -shell-escape -pdf '.tmpfile
-endfunction
-
-noremap <silent><buffer> \ff :call CompileCurrentSlide()<CR>
-noremap \fv :execute "silent !mupdf current-slide.pdf 2>/dev/null &"<CR>:!redraw<CR><CR>
-
-
 " Error handling
 " --------------
 
@@ -61,10 +87,6 @@ let g:Tex_GotoError=0
 " The first `Tex_IgnoreLevel` of `Tex_IgnoredWarnings` are ignored
 " let g:Tex_IgnoreLevel = 7
 
-" This is mostly a matter of taste. But LaTeX looks good with just a bit of
-" indentation.
-set sw=2
-
 " " TIP: if you write your \label's as \label{fig:something}, then if you
 " " type in \ref{fig: and press <C-n> you will automatically cycle through
 " " all the figure labels. Very useful!
@@ -76,6 +98,21 @@ set sw=2
 " Refrescado de foldings:
 " map [17~ \rf
 
+" Utilities
+" =========
+
+function! CompileCurrentSlide()
+   let tmpfile = "current-slide.tex"
+   silent! exe '1,/\s*\\begin{document}/w! '.tmpfile
+   silent! exe '.+1?\\begin{z*frame}?,.-1/\\end{z*frame}/w! >> '.tmpfile
+   silent! exe '/\s*\\end{document}/w! >> '.tmpfile
+   exe '!latexmk -shell-escape -pdf '.tmpfile
+endfunction
+
+noremap <silent><buffer> \ff :call CompileCurrentSlide()<CR>
+noremap \fv :execute "silent !mupdf current-slide.pdf 2>/dev/null &"<CR>:!redraw<CR><CR>
+
+ 
 " Other things
 " ============
 
