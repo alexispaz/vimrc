@@ -112,8 +112,11 @@ call vundle#begin()
   " Coding
   " ------
 
-  " tComment (use gcc, and others)
+  " Comment and uncomment with `gcc`
   Plugin 'tomtom/tcomment_vim'
+
+  " Replaces matching delimiters with `cs)]`
+  Plugin 'tpope/vim-surround'
 
   " Tablas
   " ------
@@ -341,10 +344,10 @@ inoremap = <Esc>yyp<c-v>$r=A
 "
 " If you want to "automatically" interface with the system's clipboard instead
 " of referring to it manually all the time, you can:
-" Set it to unnamed to use * (PRIMARY, on select)
-   set clipboard=unnamed
-" Set it to unnamedplus to use + (CLIPBOARD, ^C)
-"   set clipboard=unnamedplus
+" The following sets the vim default to * (PRIMARY, on select)
+"   set clipboard=unnamed
+" The following sets the vim default to + (CLIPBOARD, ^C)
+    set clipboard=unnamedplus
 " Now, just using yy will go to the system's clipboard, instead of Vim's
 " unnamed register, and p will paste the system's clipboard.
 "
@@ -765,6 +768,14 @@ if has("autocmd")
     \ endif 
  
 endif " has("autocmd")
+
+" Insert current date with keymap
+nnoremap <Leader>d "=strftime("%Y-%m-%d %H:%M")<CR>P
+" inoremap <Leader>d <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
+" " Formato 12/08/2025
+" nnoremap <Leader>d "=strftime("%d/%m/%Y")<CR>P
+" " Formato con hora en 12h (ej: 02:30 PM)
+" nnoremap <Leader>d "=strftime("%Y-%m-%d %I:%M %p")<CR>P
 
 " HARDCOPY 
 " ========

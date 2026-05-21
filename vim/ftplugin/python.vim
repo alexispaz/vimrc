@@ -1,7 +1,4 @@
-setlocal tabstop=4
-setlocal shiftwidth=4
-setlocal expandtab
-setlocal autoindent
+
 setlocal smarttab
 setlocal formatoptions=croql
 
@@ -18,3 +15,19 @@ match BadWhitespace /^\t\+/
 
 " Make trailing whitespace be flagged as bad.
 match BadWhitespace /\s\+$/
+
+" enter spaces when tab is pressed
+set expandtab           
+setlocal softtabstop=4
+setlocal tabstop=4      
+
+" break lines when line length increases
+setlocal textwidth=120       
+set autoindent          " copy indent from current line when starting a new line
+setlocal shiftwidth=4   " number of spaces to use for auto indent
+ 
+" make backspaces more powerfull
+set backspace=indent,eol,start
+
+" set showcmd             " show (partial) command in status line
+
